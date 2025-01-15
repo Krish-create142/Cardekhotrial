@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarDekho Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        .form-container img {
+            display: block;
+            margin: 0 auto 20px;
+            max-width: 150px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .form-group input[type="radio"] {
+            width: auto;
+        }
+        .form-group .radio-group {
+            display: flex;
+            gap: 10px;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #e64a19;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <img src="https://stimg2.cardekho.com/images/carNewsEditorImages/930x620/20190221_125759/23253/oem-name0.jpg" alt="CarDekho Logo">
+        <h2>Car Purchase Survey</h2>
+        <form action="https://script.google.com/macros/s/AKfycbzacqZuTZqw7ig-6rh0vSuKL1CTNny1iBpLJjyGUcMavQ_zWbWIMm8iEd48A_MULhGK/exec" method="POST" onsubmit="return validateFeatureSelection();">
+            <!-- Name -->
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <!-- Age Group -->
+            <div class="form-group">
+                <label>Age Group:</label>
+                <div class="radio-group">
+                    <input type="radio" id="under25" name="age_group" value="Under 25" required>
+                    <label for="under25">Under 25</label>
+                    <input type="radio" id="25-34" name="age_group" value="25-34">
+                    <label for="25-34">25-34</label>
+                    <input type="radio" id="35-44" name="age_group" value="35-44">
+                    <label for="35-44">35-44</label>
+                    <input type="radio" id="45-54" name="age_group" value="45-54">
+                    <label for="45-54">45-54</label>
+                    <input type="radio" id="55+" name="age_group" value="55+">
+                    <label for="55+">55+</label>
+                </div>
+            </div>
+            <!-- Gender -->
+            <div class="form-group">
+                <label>Gender:</label>
+                <div class="radio-group">
+                    <input type="radio" id="male" name="gender" value="Male" required>
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="Female">
+                    <label for="female">Female</label>
+                    <input type="radio" id="other" name="gender" value="Other">
+                    <label for="other">Other</label>
+                </div>
+            </div>
+            <!-- Location -->
+            <div class="form-group">
+                <label for="city">Location: Current City of Residence</label>
+                <select id="city" name="city" required>
+                    <option value="">-- Select City --</option>
+                    <option value="Achanta">Achanta</option>
+                    <option value="Addanki">Addanki</option>
+                    <option value="Adoni">Adoni</option>
+                    <option value="Agartala">Agartala</option>
+                    <option value="Ahmedabad">Ahmedabad</option>
+                </select>
+            </div>
+            <!-- Car Model -->
+            <div class="form-group">
+                <label for="car_model">Preferred Model: What model are you considering purchasing?</label>
+                <select id="car_model" name="car_model" required>
+                    <option value="">-- Select Model --</option>
+                    <option value="BYD Atto 3">BYD Atto 3</option>
+                    <option value="BYD E6">BYD E6</option>
+                    <option value="BYD Seal">BYD Seal</option>
+                </select>
+            </div>
+            <!-- Feature Selection -->
+            <div class="form-group">
+                <label for="features">Please Select 5 Features you find important for your car purchase:</label>
+                <div id="feature-list">
+                    <label><input type="checkbox" name="features" value="Automatic Climate Control"> Automatic Climate Control</label><br>
+                    <label><input type="checkbox" name="features" value="Keyless Entry and Ignition"> Keyless Entry and Ignition</label><br>
+                    <label><input type="checkbox" name="features" value="Rear AC Vents"> Rear AC Vents</label><br>
+                    <label><input type="checkbox" name="features" value="Rear Seat Comfort"> Rear Seat Comfort (Legroom and Headroom)</label><br>
+                    <label><input type="checkbox" name="features" value="Steering Adjustment"> Steering Reach and Height Adjustment</label><br>
+                    <label><input type="checkbox" name="features" value="360 View Camera"> 360 View Camera</label><br>
+                    <label><input type="checkbox" name="features" value="ADAS"> ADAS (Advanced Driver Assistance System)</label><br>
+                    <label><input type="checkbox" name="features" value="Automatic Headlamps and Wipers"> Automatic Headlamps and Wipers</label><br>
+                    <label><input type="checkbox" name="features" value="Cruise Control"> Cruise Control</label><br>
+                    <label><input type="checkbox" name="features" value="Parking Sensors"> Parking Sensors</label><br>
+                </div>
+            </div>
+
+            <!-- Pairwise Questions -->
+            <div class="form-group" id="pairwise-questions"></div>
+
+            <!-- Submit Button -->
+            <div class="form-group" id="submit-container" style="display: none;">
+                <button type="submit">Submit</button>
+            </div>
+            <!-- Next Button (Initially hidden) -->
+            <div class="form-group" id="next-container">
+                <button type="button" onclick="showNextQuestion()">Next</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        let currentQuestionIndex = 0;
+        let pairs = [];
+
+        // Function to generate pairwise questions based on selected features
+        function generatePairwiseQuestions(selectedFeatures) {
+            // Step 1: Generate all possible pairs of selected features
+            pairs = [];
+            for (let i = 0; i < selectedFeatures.length; i++) {
+                for (let j = i + 1; j < selectedFeatures.length; j++) {
+                    pairs.push([selectedFeatures[i], selectedFeatures[j]]);
+                }
+            }
+
+            // Step 2: Shuffle the pairs to randomize the order
+            pairs.sort(() => Math.random() - 0.5);
+        }
+
+        // Function to display the current question
+        function displayQuestion() {
+            const questionContainer = document.getElementById('pairwise-questions');
+            questionContainer.innerHTML = ''; // Clear previous question
+
+            if (currentQuestionIndex < pairs.length) {
+                const pair = pairs[currentQuestionIndex];
+                const questionText = `Which is better: ${pair[0]} or ${pair[1]}?`;
+                questionContainer.innerHTML = `
+                    <label>${questionText}</label><br>
+                    <input type="radio" name="pair-${currentQuestionIndex}" value="${pair[0]}"> ${pair[0]}<br>
+                    <input type="radio" name="pair-${currentQuestionIndex}" value="${pair[1]}"> ${pair[1]}<br>
+                `;
+            }
+
+            // Show next button until last question
+            if (currentQuestionIndex < pairs.length - 1) {
+                document.getElementById('next-container').style.display = 'block';
+                document.getElementById('submit-container').style.display = 'none';
+            } else {
+                document.getElementById('next-container').style.display = 'none';
+                document.getElementById('submit-container').style.display = 'block';
+            }
+        }
+
+        // Show the next question
+        function showNextQuestion() {
+            currentQuestionIndex++;
+            displayQuestion();
+        }
+
+        // Function to handle form submission and validate feature selection
+        function validateFeatureSelection() {
+            const selectedFeatures = Array.from(document.querySelectorAll('input[name="features"]:checked'))
+                                          .map(input => input.value);
+            if (selectedFeatures.length !== 5) {
+                alert('Please select exactly 5 features.');
+                return false;
+            }
+
+            // Step 4: Generate pairwise questions once the user has selected 5 features
+            generatePairwiseQuestions(selectedFeatures);
+
+            // Display the first question
+            displayQuestion();
+
+            // Prevent form submission until pairwise questions are added
+            return false;
+        }
+    </script>
+</body>
+</html>
